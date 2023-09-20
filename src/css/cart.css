@@ -1,0 +1,14 @@
+.an-order {
+  user-select: none;
+}
+
+.an-order:hover {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-primary-rgb),var(--bs-text-opacity))!important;
+  z-index: 2;
+  background-color: var(--bs-primary-bg-subtle)!important;
+  border-width: 2px!important;
+  --bs-border-opacity: 1;
+  border-color: rgba(var(--bs-primary-rgb),var(--bs-border-opacity))!important;
+  transition: border-color .3s ease-in-out, color .3s ease-in-out, background-color .3s ease-in-out , border-color .3s ease-in-out;
+}
