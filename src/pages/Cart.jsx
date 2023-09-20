@@ -10,7 +10,7 @@ import formatCurrency from "../helper/formatCurrency";
 
 function Cart() {
   const dispatch = useDispatch();
-  var { carts, loading2 } = useSelector((state) => state.carts);
+  let { carts, loading2 } = useSelector((state) => state.carts);
   const [cart] = useState([]);
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -80,8 +80,8 @@ function Cart() {
         title: "Thiếu thông tin nhận hàng",
       });
     } else {
-      var data = new URLSearchParams();
-      var cart = JSON.parse(localStorage.getItem("cart"));
+      let data = new URLSearchParams();
+      let cart = JSON.parse(localStorage.getItem("cart"));
       data.append("apitoken", localStorage.getItem("token"));
       data.append("tenKH", name);
       data.append("phone", phone);
@@ -122,7 +122,7 @@ function Cart() {
         .then((res) => res.json())
         .then((res) => {
           if (res.check == true) {
-            var sum = 0;
+            let sum = 0;
             setBillDetail(res.result);
             setBillInfo(res.bill[0]);
             res.result.forEach((el) => {
@@ -160,7 +160,7 @@ function Cart() {
       <Header />
       <div className="container my-5">
         {localStorage.getItem("cart") ? (
-          <div style={{ minHeight: "529px" }} className="row mt-4">
+          <div className="row mt-4">
             <div className="col-md-6">
               {localStorage.getItem("cart") && carts.length > 0 && (
                 <div className="table-responsive">
@@ -286,9 +286,7 @@ function Cart() {
             )}
           </div>
         ) : (
-          ""
-        )}
-
+          <>
         {carts.length == 0 && (
           <div className="container my-5">
             <h1 className="mb-5">Đơn hàng</h1>
@@ -323,7 +321,7 @@ function Cart() {
                   </button>
                 )}
               </div>
-              {billDetail && billDetail.length ? 
+              {billDetail && billDetail.length ? (
                 <div className="col-md-9 px-5 py-4">
                   <div className="table-responsive">
                     <table className="table table-borderless">
@@ -432,18 +430,19 @@ function Cart() {
                     </table>
                   </div>
                 </div>
-                :
+              ) : (
                 <div className="col-md-9 px-5 py-4">
-                <div style={{height: "200px"}}>
-                </div>
-                <div className="text-center py-5">
+                  <div style={{ height: "200px" }}></div>
+                  <div className="text-center py-5">
                     <i className="bi bi-arrow-left-circle-fill fs-1 text-primary"></i>
                     <p>Chọn một đơn hàng để xem thông tin</p>
+                  </div>
                 </div>
-            </div>
-              }
+              )}
             </div>
           </div>
+        )}
+          </>
         )}
       </div>
       <Footer />
