@@ -28,7 +28,7 @@ function Login() {
   };
 
   const checkLogin = async () => {
-    if (email && email !== "") {
+    // if (email && email !== "") {
       const data = new URLSearchParams();
       data.append("email", "tungns.wd@gmail.com");
       notify("loading", "Chờ xíu nha ...");
@@ -48,7 +48,7 @@ function Login() {
       } else {
         notify(content.check, "Email không đúng!");
       }
-    }
+    // }
     setEmail("");
   };
 
@@ -75,7 +75,7 @@ function Login() {
               Email
             </label>
           </div>
-          <button
+          {/* <button
             type="submit"
             className={`btn btn-danger w-100 py-3 rounded-3${
               !email ? " disabled" : ""
@@ -83,7 +83,7 @@ function Login() {
             onClick={checkLogin}
           >
             Đăng nhập
-          </button>
+          </button> */}
         </form>
       </main>
     </>

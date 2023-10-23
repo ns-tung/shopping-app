@@ -184,11 +184,11 @@ function Header() {
                   </>
                 )}
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link me-auto me-lg-3" href="/bills">
                   Đơn hàng
                 </a>
-              </li>
+              </li> */}
             </ul>
             <form className="d-flex align-items-center" role="search">
               <ul className="navbar-nav d-none d-lg-block me-auto mb-lg-0">
